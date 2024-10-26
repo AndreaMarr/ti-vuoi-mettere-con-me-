@@ -1,0 +1,45 @@
+Index. html&lt;!DOCTYPE html&gt;&lt;html lang=&quot;it&quot;&gt;&lt;head&gt; &lt;meta
+charset=&quot;UTF-8&quot;&gt; &lt;title&gt;Ti Vuoi Mettere Con Me?&lt;/title&gt; &lt;style&gt;
+body { text-align: center; font-family: Arial, sans-serif; background-
+color: #ffe6e6; color: #333; } .question { font-size: 2em; margin-
+top: 50px; } .buttons { margin-top: 20px; } .button { font-size:
+1.2em; padding: 10px 20px; margin: 10px; cursor: pointer; border:
+none; } .yes { background-color: #ff5e5e; color: white; } .no {
+background-color: #cccccc; color: black; } .maybe { background-
+color: #ffb3b3; color: white; } .animation { position: fixed; font-
+size: 2em; animation: float 3s ease infinite; opacity: 0; } /*
+Animazione di cuori verso l’alto */ @keyframes float { 0% {
+transform: translateY(0); opacity: 1; } 100% { transform:
+translateY(-100px); opacity: 0; } } /* Animazione di faccine
+tristi verso il basso */ @keyframes drop { 0% { transform:
+translateY(-100px); opacity: 1; } 100% { transform:
+translateY(100px); opacity: 0; } } &lt;/style&gt;&lt;/head&gt;&lt;body&gt;
+&lt;h1&gt;Ti Vuoi Mettere Con Me?&lt;/h1&gt; &lt;p class=&quot;question&quot;&gt;Ti vuoi
+mettere con me?&lt;/p&gt; &lt;div class=&quot;buttons&quot;&gt; &lt;button
+class=&quot;button yes&quot; onclick=&quot;risposta(&#39;sì&#39;)&quot;&gt;Sì&lt;/button&gt; &lt;button
+class=&quot;button no&quot; onclick=&quot;risposta(&#39;no&#39;)&quot;&gt;No&lt;/button&gt; &lt;button
+class=&quot;button maybe&quot; onclick=&quot;risposta(&#39;forse&#39;)&quot;&gt;Forse&lt;/button&gt;
+&lt;/div&gt; &lt;p id=&quot;response&quot;&gt;&lt;/p&gt; &lt;!-- Contenitore per le animazioni -
+-&gt; &lt;div id=&quot;animation-container&quot;&gt;&lt;/div&gt; &lt;script&gt; function
+risposta(answer) { let responseText = &quot;&quot;; let
+animationContainer = document.getElementById(&#39;animation-
+container&#39;); animationContainer.innerHTML = &quot;&quot;; // Pulisce
+animazioni precedenti if (answer === &#39;sì&#39;) {
+responseText = &quot;Fantastico! Non vedo l’ora di stare con te! ❤️&quot;;
+creaAnimazione(&#39;❤️&#39;, &#39;float&#39;); } else if (answer === &#39;no&#39;) {
+responseText = &quot;Oh, va bene! Resteremo amici come prima ��&quot;;
+creaAnimazione(&#39;��&#39;, &#39;drop&#39;); } else { responseText
+&quot;Hai bisogno di tempo? Va benissimo, io aspetto! ��&quot;; }
+document.getElementById(&#39;response&#39;).innerText = responseText; }
+// Funzione per creare animazioni function
+creaAnimazione(simbolo, animazione) { let animationContainer
+= document.getElementById(&#39;animation-container&#39;); for (let i = 0;
+i &lt; 10; i++) { let elem = document.createElement(&#39;div&#39;);
+elem.innerText = simbolo; elem.classList.add(&#39;animation&#39;);
+elem.style.left = Math.random() * 100 + &#39;vw&#39;;
+elem.style.animationName = animazione;
+
+animationContainer.appendChild(elem); // Rimuove
+l&#39;elemento dopo l&#39;animazione per evitare sovraccarichi
+setTimeout(() =&gt; { elem.remove(); }, 3000); } }
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
